@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIKE - Just Do It</title>
+    <title>Nike France - Just Do It</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,36 +13,36 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
         }
 
-        /* Header Styles */
-        .header {
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 32px;
             font-weight: bold;
             color: #000;
             text-decoration: none;
@@ -52,36 +53,37 @@
             transform: scale(1.05);
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 30px;
         }
 
-        .nav-menu a {
+        .nav-links a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
         }
 
-        .nav-menu a:hover {
+        .nav-links a:hover {
             color: #000;
+            transform: translateY(-2px);
         }
 
-        .nav-menu a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
             bottom: -5px;
             left: 0;
-            background: #000;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #000, #555);
             transition: width 0.3s ease;
         }
 
-        .nav-menu a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
@@ -102,7 +104,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #000 0%, #333 100%);
+            background: linear-gradient(135deg, #000 0%, #333 50%, #000 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -117,447 +119,28 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.05" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-            background-size: cover;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 Q50,25 100,0 L100,100 L0,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(20px) rotate(5deg); }
         }
 
         .hero-content {
-            position: relative;
+            max-width: 800px;
             z-index: 2;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: white;
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-
-        /* Sections générales */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-weight: bold;
-            color: #000;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        /* About Section */
-        .about {
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #000;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            background: linear-gradient(45deg, #000, #333);
-            height: 400px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        /* Products Section */
-        .products {
-            padding: 5rem 0;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            animation: slideUp 1s ease-out;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #000, #333);
-        }
-
-        .product-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .product-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #000;
-        }
-
-        .product-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #000;
-        }
-
-        /* Features Section */
-        .features {
-            background: linear-gradient(135deg, #000 0%, #333 100%);
-            color: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-item p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background: #f8f9fa;
-            padding: 5rem 0;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            left: 2rem;
-            font-size: 4rem;
-            color: #000;
-            opacity: 0.3;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: #555;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: #000;
-        }
-
-        .testimonial-role {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Newsletter Section */
-        .newsletter {
-            background: linear-gradient(135deg, #000 0%, #333 100%);
-            color: white;
-            text-align: center;
-            padding: 4rem 0;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 2rem auto;
-            gap: 1rem;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .newsletter-button {
-            padding: 15px 30px;
-            background: white;
-            color: #000;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 0;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #000;
-        }
-
-        .contact-info p {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-
-        .contact-form {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #000;
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 15px;
-            background: #000;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-button:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            background: #000;
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 1rem;
-            text-align: center;
-            color: #ccc;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: #555;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -565,36 +148,444 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(45deg, #ff5252, #ff7979);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .about-card:hover::before {
+            left: 100%;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-card .icon {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-content p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .testimonial-card .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .testimonial-card .role {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item .icon {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            margin-right: 15px;
+            width: 20px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6b6b;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: #ccc;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #ff6b6b;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            color: #666;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
             .hamburger {
                 display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: rgba(255, 255, 255, 0.98);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 2rem 0;
-                backdrop-filter: blur(10px);
-            }
-
-            .nav-menu.active {
-                left: 0;
             }
 
             .hero h1 {
@@ -605,59 +596,62 @@
                 font-size: 1.1rem;
             }
 
-            .about-content {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 40px;
             }
 
-            .newsletter-form {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 1rem;
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
 
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            z-index: 9999;
+            transition: width 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
+    <div class="scroll-indicator"></div>
+    
+    <header>
+        <nav>
             <a href="#" class="logo">✓ NIKE</a>
-            <ul class="nav-menu">
+            <ul class="nav-links">
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#products">Produits</a></li>
-                <li><a href="#features">Avantages</a></li>
+                <li><a href="#features">Caractéristiques</a></li>
+                <li><a href="#testimonials">Avis</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -668,223 +662,199 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1>JUST DO IT</h1>
-            <p>Découvrez la nouvelle collection Nike et libérez votre potentiel sportif. Innovation, performance et style s'unissent pour vous accompagner dans tous vos défis.</p>
-            <a href="#products" class="cta-button">Découvrir la collection</a>
+            <h1>Just Do It</h1>
+            <p>Découvrez la nouvelle collection Nike qui révolutionnera votre style de vie sportif. Innovation, performance et design se rencontrent pour vous offrir une expérience unique.</p>
+            <a href="#products" class="cta-button">Découvrir maintenant</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
+    <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Notre Histoire</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Plus qu'une marque, un état d'esprit</h3>
-                    <p>Depuis 1971, Nike inspire les athlètes du monde entier à repousser leurs limites. Nous croyons que chaque personne porte en elle un athlète, et notre mission est de révéler ce potentiel à travers l'innovation et la performance.</p>
-                    <p>De l'innovation révolutionnaire de la semelle Air aux dernières technologies Flyknit et React, nous continuons de redéfinir les standards de l'équipement sportif. Notre engagement envers l'excellence nous pousse constamment vers de nouveaux sommets.</p>
-                    <p>Rejoignez la communauté Nike et découvrez comment nos produits peuvent transformer votre approche du sport et de la vie quotidienne.</p>
-                </div>
-                <div class="about-image">
-                    🏃‍♂️ Innovation & Performance
-                </div>
+            <div class="section-header fade-in">
+                <h2>Pourquoi choisir Nike</h2>
+                <p>Depuis plus de 50 ans, Nike repousse les limites de l'innovation sportive. Notre mission est d'inspirer et d'innover pour chaque athlète dans le monde. Découvrez ce qui nous rend unique et pourquoi des millions d'athlètes nous font confiance chaque jour.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="section products" id="products">
-        <div class="container">
-            <h2 class="section-title">Nos Collections</h2>
-            <p class="section-subtitle">Explorez nos gammes de produits conçues pour maximiser vos performances et exprimer votre style unique</p>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">👟</div>
-                    <h3>Chaussures Running</h3>
-                    <p>Découvrez notre gamme complète de chaussures de running, équipées des dernières technologies Nike Air Zoom et React. Conçues pour offrir un confort optimal et une performance maximale sur tous types de terrains.</p>
-                    <div class="product-price">À partir de 120€</div>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="icon">🚀</div>
+                    <h3>Innovation Continue</h3>
+                    <p>Nos équipes de recherche et développement travaillent sans relâche pour créer des technologies révolutionnaires. De la semelle Air Max aux tissus Dri-FIT, chaque innovation est conçue pour améliorer vos performances et votre confort au quotidien.</p>
                 </div>
-                <div class="product-card">
-                    <div class="product-icon">👕</div>
-                    <h3>Vêtements Sport</h3>
-                    <p>Nos collections de vêtements techniques allient style et fonctionnalité. Tissus respirants, coupe ergonomique et designs modernes pour vous accompagner dans toutes vos activités sportives.</p>
-                    <div class="product-price">À partir de 45€</div>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">⚽</div>
-                    <h3>Équipements Sport</h3>
-                    <p>Ballons, accessoires d'entraînement, sacs de sport et équipements spécialisés. Tout ce dont vous avez besoin pour exceller dans votre discipline sportive favorite.</p>
-                    <div class="product-price">À partir de 25€</div>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🏀</div>
-                    <h3>Basketball</h3>
-                    <p>Collection dédiée au basketball avec les dernières innovations en matière de chaussures et vêtements. Performance, style et héritage basketball Nike dans chaque produit.</p>
-                    <div class="product-price">À partir de 85€</div>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">💪</div>
-                    <h3>Training</h3>
-                    <p>Équipements et vêtements spécialement conçus pour l'entraînement en salle. Flexibilité, durabilité et confort pour maximiser l'efficacité de vos séances de sport.</p>
-                    <div class="product-price">À partir de 55€</div>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🏃‍♀️</div>
-                    <h3>Lifestyle</h3>
-                    <p>Notre gamme lifestyle combine l'héritage sportif Nike avec des designs urbains contemporains. Parfait pour un style décontracté et moderne au quotidien.</p>
-                    <div class="product-price">À partir de 70€</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section features" id="features">
-        <div class="container">
-            <h2 class="section-title">Pourquoi Choisir Nike</h2>
-            <p class="section-subtitle">Des décennies d'innovation et d'expertise au service de votre performance</p>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🔬</div>
-                    <h3>Innovation Technologique</h3>
-                    <p>Nos laboratoires de recherche développent constamment de nouvelles technologies pour améliorer vos performances sportives.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Impact Environnemental</h3>
-                    <p>Engagement pour un avenir durable avec des matériaux recyclés et des processus de production respectueux de l'environnement.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🏆</div>
+                <div class="about-card fade-in">
+                    <div class="icon">🏆</div>
                     <h3>Qualité Premium</h3>
-                    <p>Chaque produit Nike est soumis à des tests rigoureux pour garantir durabilité, confort et performance optimale.</p>
+                    <p>Chaque produit Nike passe par des tests rigoureux de qualité. Nous sélectionnons uniquement les meilleurs matériaux et utilisons des techniques de fabrication de pointe pour garantir une durabilité exceptionnelle et des performances optimales.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">👥</div>
-                    <h3>Communauté</h3>
-                    <p>Rejoignez une communauté mondiale d'athlètes et d'amateurs de sport partageant la même passion pour l'excellence.</p>
+                <div class="about-card fade-in">
+                    <div class="icon">🌍</div>
+                    <h3>Impact Positif</h3>
+                    <p>Notre engagement envers la durabilité guide chacune de nos actions. Nous investissons dans des matériaux recyclés, réduisons notre empreinte carbone et soutenons les communautés locales pour construire un avenir plus durable.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section testimonials">
+    <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Ce Que Disent Nos Clients</h2>
+            <div class="section-header fade-in">
+                <h2>Technologies Nike</h2>
+                <p>Découvrez les innovations technologiques qui font de Nike le leader mondial de l'équipement sportif.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="icon">⚡</div>
+                    <h3>Nike Air</h3>
+                    <p>Notre technologie d'amortissement révolutionnaire qui utilise des unités d'air pressurisé pour un confort et une réactivité incomparables.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="icon">💧</div>
+                    <h3>Dri-FIT</h3>
+                    <p>Technologie d'évacuation de la transpiration qui maintient votre peau sèche et fraîche pendant l'effort le plus intense.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="icon">🔥</div>
+                    <h3>Flyknit</h3>
+                    <p>Construction légère et respirante qui s'adapte parfaitement à votre pied pour un ajustement personnalisé et un soutien optimal.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="icon">⭐</div>
+                    <h3>React</h3>
+                    <p>Mousse innovante qui offre un retour d'énergie exceptionnel et une durabilité supérieure pour vos sessions d'entraînement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Nos Bestsellers</h2>
+                <p>Découvrez notre sélection des produits les plus populaires, plébiscités par les athlètes du monde entier pour leur qualité exceptionnelle et leurs performances remarquables.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image">👟</div>
+                    <div class="product-content">
+                        <h3>Air Max 270</h3>
+                        <p>La chaussure lifestyle qui combine style urbain et technologie Air Max pour un confort toute la journée.</p>
+                        <div class="price">149,99 €</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">🏃</div>
+                    <div class="product-content">
+                        <h3>React Infinity Run</h3>
+                        <p>Chaussure de running conçue pour réduire les risques de blessure et maximiser votre plaisir de courir.</p>
+                        <div class="price">159,99 €</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">👕</div>
+                    <div class="product-content">
+                        <h3>Dri-FIT Training Top</h3>
+                        <p>T-shirt d'entraînement avec technologie d'évacuation de la transpiration pour rester au sec pendant l'effort.</p>
+                        <div class="price">39,99 €</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">🩳</div>
+                    <div class="product-content">
+                        <h3>Flex Stride Shorts</h3>
+                        <p>Short de running léger avec technologie Flex pour une liberté de mouvement optimale.</p>
+                        <div class="price">49,99 €</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">🧢</div>
+                    <div class="product-content">
+                        <h3>Sportswear Cap</h3>
+                        <p>Casquette classique Nike avec logo brodé, parfaite pour compléter votre look sportif.</p>
+                        <div class="price">24,99 €</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">🎒</div>
+                    <div class="product-content">
+                        <h3>Training Backpack</h3>
+                        <p>Sac à dos spacieux et résistant, idéal pour transporter tout votre équipement d'entraînement.</p>
+                        <div class="price">79,99 €</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Ce que disent nos clients</h2>
+                <p>Découvrez les témoignages authentiques de nos clients satisfaits qui ont choisi Nike pour atteindre leurs objectifs sportifs.</p>
+            </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Les chaussures Nike Air Zoom ont complètement transformé mes performances de course. Le confort et la réactivité sont exceptionnels, je recommande vivement !</p>
-                    <div class="testimonial-author">Marie Dubois</div>
-                    <div class="testimonial-role">Marathonienne Amateur</div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote">
+                        "Nike a complètement transformé ma façon de m'entraîner. Leurs chaussures de running m'ont permis d'améliorer mes performances tout en réduisant les douleurs. Je recommande vivement !"
+                    </div>
+                    <div class="author">Sarah Martin</div>
+                    <div class="role">Marathonienne amateur</div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">En tant que coach sportif, je recommande Nike à tous mes clients. La qualité des produits et l'innovation technologique font vraiment la différence dans l'entraînement.</p>
-                    <div class="testimonial-author">Thomas Martin</div>
-                    <div class="testimonial-role">Coach Sportif Professionnel</div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote">
+                        "La qualité des produits Nike est exceptionnelle. J'utilise leurs équipements depuis 5 ans et ils sont toujours en parfait état. Un investissement qui en vaut la peine."
+                    </div>
+                    <div class="author">Alexandre Dubois</div>
+                    <div class="role">Coach sportif</div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">La collection lifestyle Nike me permet d'allier confort et style au quotidien. Les designs sont modernes et la qualité est au rendez-vous depuis des années.</p>
-                    <div class="testimonial-author">Sarah Leroy</div>
-                    <div class="testimonial-role">Étudiante en Sport</div>
+                <div class="testimonial-card fade-in">
+                    <div class="quote">
+                        "Le service client Nike est remarquable. Ils m'ont aidée à trouver les chaussures parfaites pour mes entraînements de crossfit. Une expérience client exceptionnelle !"
+                    </div>
+                    <div class="author">Marie Lambert</div>
+                    <div class="role">Passionnée de fitness</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2>Restez Connecté</h2>
-            <p>Inscrivez-vous à notre newsletter pour recevoir nos dernières nouveautés, offres exclusives et conseils d'experts</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Votre adresse email" class="newsletter-input" required>
-                <button type="submit" class="newsletter-button">S'inscrire</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contactez-Nous</h2>
+            <div class="section-header fade-in">
+                <h2>Contactez-nous</h2>
+                <p>Notre équipe est là pour vous aider. N'hésitez pas à nous contacter pour toute question ou demande d'information. Nous nous engageons à vous répondre dans les plus brefs délais.</p>
+            </div>
             <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Informations de Contact</h3>
-                    <p><strong>Adresse :</strong><br>
-                    Nike France<br>
-                    45 Avenue des Champs-Élysées<br>
-                    75008 Paris, France</p>
-                    
-                    <p><strong>Téléphone :</strong><br>
-                    +33 1 42 96 70 00</p>
-                    
-                    <p><strong>Email :</strong><br>
-                    contact@nike.fr</p>
-                    
-                    <p><strong>Horaires d'ouverture :</strong><br>
-                    Lundi - Vendredi : 9h00 - 18h00<br>
-                    Samedi : 10h00 - 17h00<br>
-                    Dimanche : Fermé</p>
-
-                    <p><strong>Service Client :</strong><br>
-                    Notre équipe est disponible pour répondre à toutes vos questions concernant nos produits, votre commande ou pour des conseils personnalisés.</p>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="name" required>
+                <div class="contact-info fade-in">
+                    <h3>Informations de contact</h3>
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <strong>Adresse :</strong><br>
+                            Nike France<br>
+                            45 Avenue des Champs-Élysées<br>
+                            75008 Paris, France
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Adresse email</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <div>
+                            <strong>Téléphone :</strong><br>
+                            +33 1 42 86 83 00
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" required>
+                    <div class="contact-item">
+                        <div class="icon">✉️</div>
+                        <div>
+                            <strong>Email :</strong><br>
+                            contact@nike.fr
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Envoyer le message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Produits</h3>
-                    <a href="#">Chaussures</a>
-                    <a href="#">Vêtements</a>
-                    <a href="#">Accessoires</a>
-                    <a href="#">Nouveautés</a>
-                    <a href="#">Promotions</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Sport</h3>
-                    <a href="#">Running</a>
-                    <a href="#">Basketball</a>
-                    <a href="#">Football</a>
-                    <a href="#">Training</a>
-                    <a href="#">Lifestyle</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Aide</h3>
-                    <a href="#">Guide des tailles</a>
-                    <a href="#">Retours gratuits</a>
-                    <a href="#">Livraison</a>
-                    <a href="#">Service client</a>
-                    <a href="#">FAQ</a>
-                </div>
-                <div class="footer-section">
-                    <h3>À Propos</h3>
-                    <a href="#">Notre histoire</a>
-                    <a href="#">Carrières
+                    <div class="contact-item">
+                        <div class="icon">🕒</div>
+                        <div>
+                            <strong>Horaires :</strong><br>
+                            Lun-Ven: 9h-18h<br>
+                            Sam: 10h-17h<br>
+                            Dim: Fermé
+                        </div

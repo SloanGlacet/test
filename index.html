@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IKEA France - Meubles et Décoration pour la Maison</title>
+    <title>Adidas France - Chaussures, Vêtements & Équipements de Sport</title>
     <style>
         * {
             margin: 0;
@@ -12,78 +12,102 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
         }
 
-        /* Header */
-        .header {
-            background: #0058a3;
-            color: white;
-            padding: 1rem 0;
+        /* Header Styles */
+        header {
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,88,163,0.3);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
 
         .logo {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
-            color: #ffdb00;
+            color: #000;
             text-decoration: none;
-            letter-spacing: 3px;
+            transition: transform 0.3s ease;
         }
 
-        .nav-menu {
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
-        .nav-item a {
-            color: white;
+        .nav-links a {
             text-decoration: none;
+            color: #333;
             font-weight: 500;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            position: relative;
         }
 
-        .nav-item a:hover {
-            background: rgba(255,219,0,0.2);
-            color: #ffdb00;
-            transform: translateY(-2px);
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .hamburger {
             display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
+            flex-direction: column;
             cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #0058a3 0%, #004c8b 100%);
-            color: white;
-            padding: 150px 0 100px;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -95,443 +119,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-            background-size: cover;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
             z-index: 2;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            line-height: 1.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ffdb00, #ffc400);
-            color: #0058a3;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(255,219,0,0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,219,0,0.4);
-            background: linear-gradient(45deg, #ffc400, #ffb000);
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px;
             padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            color: #0058a3;
-            margin-bottom: 3rem;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,88,163,0.1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,88,163,0.15);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: #0058a3;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .product-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .category-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            position: relative;
-        }
-
-        .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 50px rgba(0,88,163,0.15);
-        }
-
-        .category-image {
-            height: 200px;
-            background: linear-gradient(45deg, #0058a3, #004c8b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-        }
-
-        .category-content {
-            padding: 2rem;
-        }
-
-        .category-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .category-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .category-price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #0058a3;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #0058a3 0%, #004c8b 100%);
-            color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .service-item {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .service-item:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-        }
-
-        .service-item h3 {
-            font-size: 1.3rem;
-            margin: 1rem 0;
-            color: #ffdb00;
-        }
-
-        .service-item p {
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .testimonial-card::before {
-            content: '💬';
-            position: absolute;
-            top: -20px;
-            left: 2rem;
-            background: #0058a3;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: #0058a3;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            padding: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: #e9ecef;
-            transform: translateX(10px);
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: #0058a3;
-        }
-
-        .contact-form {
-            background: #f8f9fa;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0058a3;
-            box-shadow: 0 0 15px rgba(0,88,163,0.1);
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #0058a3, #004c8b);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,88,163,0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            color: #ffdb00;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #ffdb00;
-            padding-left: 10px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: #ffdb00;
-            color: #1a1a1a;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 2rem;
-            text-align: center;
-            color: #999;
-        }
-
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -543,30 +146,466 @@
             }
         }
 
-        .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .about-text h3 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .product-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: #f8f9fa;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .testimonial-role {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item span {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 10px;
+            background: #333;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #0058a3;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            }
-
-            .nav-menu.active {
+            .hamburger {
                 display: flex;
             }
 
-            .hamburger {
-                display: block;
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
             }
 
             .hero h1 {
@@ -578,39 +617,17 @@
             }
 
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
+            .products-grid,
             .features-grid,
-            .product-categories,
-            .services-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero {
-                padding: 120px 0 80px;
-            }
-
-            .about,
-            .products,
-            .services,
-            .testimonials,
-            .contact {
-                padding: 60px 0;
+            .contact-content {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -619,175 +636,222 @@
                 font-size: 2rem;
             }
 
-            .logo {
-                font-size: 2rem;
+            .container {
+                padding: 0 1rem;
             }
 
-            .feature-card,
-            .contact-form {
-                padding: 2rem 1.5rem;
+            section {
+                padding: 60px 0;
             }
+        }
+
+        /* Animation for scroll reveal */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <a href="#" class="logo">IKEA</a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#home">Accueil</a></li>
-                <li class="nav-item"><a href="#products">Produits</a></li>
-                <li class="nav-item"><a href="#services">Services</a></li>
-                <li class="nav-item"><a href="#about">À propos</a></li>
-                <li class="nav-item"><a href="#contact">Contact</a></li>
+    <header>
+        <nav>
+            <a href="#" class="logo">adidas</a>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#products">Produits</a></li>
+                <li><a href="#features">Sports</a></li>
+                <li><a href="#testimonials">Avis</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="hamburger">☰</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Créez votre maison idéale</h1>
-            <p>Découvrez notre collection exceptionnelle de meubles et accessoires design à prix abordables. De la chambre au salon, en passant par la cuisine et la salle de bain, IKEA vous accompagne dans tous vos projets d'aménagement avec style et fonctionnalité.</p>
-            <a href="#products" class="cta-button">Découvrir nos produits</a>
+            <h1>Impossible is Nothing</h1>
+            <p>Découvrez notre nouvelle collection de chaussures, vêtements et équipements de sport conçus pour vous accompagner dans tous vos défis. Que vous soyez amateur ou athlète professionnel, adidas vous offre les meilleures technologies pour dépasser vos limites.</p>
+            <a href="#products" class="cta-button">Découvrir la collection</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section class="about fade-in" id="about">
         <div class="container">
-            <h2 class="section-title">Pourquoi choisir IKEA ?</h2>
-            <p class="section-subtitle">Depuis plus de 75 ans, IKEA révolutionne l'art de vivre à la maison avec des solutions innovantes, durables et accessibles à tous. Notre mission est simple : créer un quotidien meilleur pour le plus grand nombre.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🏠</div>
-                    <h3>Design Scandinave</h3>
-                    <p>Nos créateurs s'inspirent de l'héritage scandinave pour concevoir des meubles alliant simplicité, fonctionnalité et esthétique. Chaque produit raconte une histoire et s'intègre harmonieusement dans votre intérieur, créant une atmosphère chaleureuse et accueillante.</p>
+            <h2 class="section-title">Notre Histoire</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Plus qu'une marque, une passion</h3>
+                    <p>Depuis 1949, adidas révolutionne le monde du sport avec des innovations constantes et un design iconique. Notre mission est simple : accompagner chaque athlète, du débutant au champion olympique, dans la réalisation de ses objectifs.</p>
+                    <p>Nous croyons que le sport a le pouvoir de changer des vies. C'est pourquoi nous nous engageons à créer des produits de qualité supérieure qui allient performance, style et durabilité. Nos trois bandes sont devenues le symbole de l'excellence sportive dans le monde entier.</p>
+                    <p>Aujourd'hui, nous continuons d'innover avec des technologies révolutionnaires comme Boost, Primeknit et Climacool, tout en respectant notre engagement envers l'environnement avec des matériaux recyclés et des processus de fabrication durables.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Prix Abordables</h3>
-                    <p>Notre philosophie repose sur l'accessibilité. Grâce à notre chaîne d'approvisionnement optimisée et notre production à grande échelle, nous proposons des meubles de qualité à des prix démocratiques, sans compromis sur le style ou la durabilité.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Développement Durable</h3>
-                    <p>L'environnement est au cœur de nos préoccupations. Nous nous engageons à utiliser des matériaux renouvelables et recyclés, à réduire notre empreinte carbone et à proposer des solutions circulaires pour un mode de vie plus responsable et respectueux de la planète.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Solutions Pratiques</h3>
-                    <p>Nos équipes d'experts développent des solutions ingénieuses pour optimiser chaque mètre carré de votre habitat. Rangements malins, meubles modulaires et multifonctionnels : tout est pensé pour simplifier votre quotidien et maximiser votre confort.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3>Livraison Rapide</h3>
-                    <p>Profitez de notre réseau logistique performant pour recevoir vos commandes rapidement et en parfait état. Nos équipes de livraison professionnelles s'adaptent à vos contraintes et vous garantissent un service de qualité jusqu'à votre domicile.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3>Service Montage</h3>
-                    <p>Nos techniciens qualifiés sont à votre disposition pour assembler vos meubles selon les plus hauts standards de qualité. Gagnez du temps et profitez immédiatement de vos nouveaux aménagements grâce à notre service de montage professionnel et soigné.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">75+</span>
+                        <span class="stat-label">Années d'expérience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">190+</span>
+                        <span class="stat-label">Pays dans le monde</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">60K+</span>
+                        <span class="stat-label">Employés passionnés</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2.2M+</span>
+                        <span class="stat-label">Produits vendus/an</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="products">
+    <section class="products fade-in" id="products">
         <div class="container">
-            <h2 class="section-title">Nos Catégories Principales</h2>
-            <p class="section-subtitle">Explorez notre vaste gamme de produits soigneusement sélectionnés pour répondre à tous vos besoins d'aménagement. De la chambre à coucher au bureau, en passant par les espaces de vie et les solutions de rangement, trouvez l'inspiration pour transformer votre intérieur.</p>
-            
-            <div class="product-categories">
-                <div class="category-card">
-                    <div class="category-image">🛏️</div>
-                    <div class="category-content">
-                        <h3>Chambre à Coucher</h3>
-                        <p>Créez votre sanctuaire personnel avec notre collection complète de lits, matelas, armoires et commodes. Du style minimaliste au design contemporain, transformez votre chambre en un havre de paix propice au repos et à la détente.</p>
-                        <div class="category-price">À partir de 149€</div>
-                    </div>
+            <h2 class="section-title">Nos Collections</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <span class="product-icon">👟</span>
+                    <h3>Chaussures Running</h3>
+                    <p>Découvrez notre gamme complète de chaussures de running avec la technologie Boost pour un retour d'énergie optimal. Confort, performance et style réunis dans chaque foulée.</p>
+                    <div class="product-price">À partir de 89€</div>
+                    <a href="#" class="cta-button">Explorer</a>
                 </div>
-                <div class="category-card">
-                    <div class="category-image">🛋️</div>
-                    <div class="category-content">
-                        <h3>Salon & Séjour</h3>
-                        <p>Aménagez un espace de vie convivial avec nos canapés confortables, tables basses design et solutions de divertissement. Chaque élément est pensé pour favoriser les moments de partage et de relaxation en famille ou entre amis.</p>
-                        <div class="category-price">À partir de 299€</div>
-                    </div>
+                <div class="product-card">
+                    <span class="product-icon">👕</span>
+                    <h3>Vêtements Sport</h3>
+                    <p>Tenues techniques et lifestyle pour tous les sports. Matériaux respirants, coupe ergonomique et designs tendance pour vous accompagner du terrain à la ville.</p>
+                    <div class="product-price">À partir de 35€</div>
+                    <a href="#" class="cta-button">Explorer</a>
                 </div>
-                <div class="category-card">
-                    <div class="category-image">🍽️</div>
-                    <div class="category-content">
-                        <h3>Cuisine & Salle à Manger</h3>
-                        <p>Équipez votre cuisine avec nos solutions modulaires et nos accessoires pratiques. Tables, chaises, rangements et ustensiles : tout pour faire de votre cuisine le cœur battant de votre foyer où se mélangent saveurs et convivialité.</p>
-                        <div class="category-price">À partir de 199€</div>
-                    </div>
+                <div class="product-card">
+                    <span class="product-icon">⚽</span>
+                    <h3>Football</h3>
+                    <p>Équipement officiel des plus grandes équipes mondiales. Chaussures de foot, ballons et maillots pour jouer comme vos idoles sur tous les terrains.</p>
+                    <div class="product-price">À partir de 65€</div>
+                    <a href="#" class="cta-button">Explorer</a>
                 </div>
-                <div class="category-card">
-                    <div class="category-image">📚</div>
-                    <div class="category-content">
-                        <h3>Bureau & Travail</h3>
-                        <p>Créez un environnement de travail productif et inspirant avec nos bureaux ergonomiques, chaises de bureau confortables et solutions de rangement astucieuses. Télétravail ou études, optimisez votre espace pour une meilleure concentration.</p>
-                        <div class="category-price">À partir de 89€</div>
-                    </div>
+                <div class="product-card">
+                    <span class="product-icon">🏀</span>
+                    <h3>Basketball</h3>
+                    <p>Collection signature des plus grandes stars de la NBA. Technologie avancée pour l'explosivité, le maintien et le confort sur le parquet.</p>
+                    <div class="product-price">À partir de 95€</div>
+                    <a href="#" class="cta-button">Explorer</a>
                 </div>
-                <div class="category-card">
-                    <div class="category-image">🧸</div>
-                    <div class="category-content">
-                        <h3>Chambre Enfant</h3>
-                        <p>Accompagnez la croissance de vos enfants avec des meubles évolutifs, colorés et sécurisés. Lits, bureaux, rangements ludiques : créez un univers stimulant où imagination et apprentissage se développent harmonieusement.</p>
-                        <div class="category-price">À partir de 79€</div>
-                    </div>
+                <div class="product-card">
+                    <span class="product-icon">🎾</span>
+                    <h3>Tennis</h3>
+                    <p>Équipement approuvé par les champions de Roland Garros et Wimbledon. Précision, stabilité et élégance pour dominer le court.</p>
+                    <div class="product-price">À partir de 75€</div>
+                    <a href="#" class="cta-button">Explorer</a>
                 </div>
-                <div class="category-card">
-                    <div class="category-image">💡</div>
-                    <div class="category-content">
-                        <h3>Éclairage & Décoration</h3>
-                        <p>Sublimez votre intérieur avec notre sélection d'luminaires design, miroirs élégants et accessoires décoratifs. Jeux de lumière, textures et couleurs : donnez vie à vos espaces et exprimez votre personnalité unique.</p>
-                        <div class="category-price">À partir de 19€</div>
-                    </div>
+                <div class="product-card">
+                    <span class="product-icon">🏋️</span>
+                    <h3>Training</h3>
+                    <p>Gear polyvalent pour tous vos entraînements. Flexibilité, résistance et respirabilité pour repousser vos limites à chaque séance.</p>
+                    <div class="product-price">À partir de 45€</div>
+                    <a href="#" class="cta-button">Explorer</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Features Section -->
+    <section class="features fade-in" id="features">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Nos Services Exclusifs</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">IKEA vous accompagne à chaque étape de votre projet d'aménagement avec une gamme complète de services personnalisés. De la conception à l'installation, bénéficiez de l'expertise de nos professionnels pour concrétiser vos rêves d'habitat.</p>
-            
-            <div class="services-grid">
-                <div class="service-item">
-                    <div class="feature-icon" style="color: #ffdb00;">🏡</div>
-                    <h3>Planification 3D</h3>
-                    <p>Visualisez votre projet en 3D grâce à nos outils de planification avancés. Nos conseillers experts vous aident à optimiser l'agencement de vos espaces et à choisir les meubles parfaitement adaptés à vos dimensions et contraintes techniques.</p>
+            <h2 class="section-title">Nos Technologies</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <h3>BOOST™</h3>
+                    <p>Notre technologie révolutionnaire d'amorti qui stocke et restitue l'énergie à chaque pas. Plus de confort, plus de performance, plus longtemps.</p>
                 </div>
-                <div class="service-item">
-                    <div class="feature-icon" style="color: #ffdb00;">🚚</div>
-                    <h3>Livraison Premium</h3>
-                    <p>Profitez de notre service de livraison premium avec créneaux au choix, montage à l'étage et installation directement dans la pièce de destination. Nos équipes prennent soin de vos achats et respectent scrupuleusement votre domicile.</p>
+                <div class="feature">
+                    <span class="feature-icon">🧵</span>
+                    <h3>PRIMEKNIT</h3>
+                    <p>Tige tricotée sans coutures qui épouse parfaitement la forme de votre pied. Légèreté, flexibilité et maintien optimal pour un confort inégalé.</p>
                 </div>
-                <div class="service-item">
-                    <div class="feature-icon" style="color: #ffdb00;">🔨</div>
-                    <h3>Montage Professionnel</h3>
-                    <p>Confiez l'assemblage de vos meubles à nos techniciens certifiés. Ils maîtrisent parfaitement toutes nos gammes et garantissent un montage soigné selon les normes de sécurité les plus strictes, avec nettoyage des emballages inclus.</p>
+                <div class="feature">
+                    <span class="feature-icon">💨</span>
+                    <h3>CLIMACOOL</h3>
+                    <p>Système de ventilation 360° qui évacue la chaleur et l'humidité. Restez au frais et au sec même pendant les entraînements les plus intenses.</p>
                 </div>
-                <div class="service-item">
-                    <div class="feature-icon" style="color: #ffdb00;">🎨</div>
-                    <h3>Conseil Décoration</h3>
-                    <p>Bénéficiez des conseils personnalisés de nos décorateurs d'intérieur pour harmoniser couleurs, textures et styles. Ils vous accompagnent dans la création d'ambiances uniques qui reflètent votre personnalité et vos goûts.</p>
+                <div class="feature">
+                    <span class="feature-icon">🌿</span>
+                    <h3>PARLEY</h3>
+                    <p>Collection éco-responsable fabriquée à partir de plastique océanique recyclé. Performance et protection de l'environnement réunies.</p>
                 </div>
-                <div class="service-item">
-                    <div class="feature-icon" style="color: #ffdb00;">💳</div>
-                    <h3>Financement Flexible</h3>
-                    <p>Réalisez vos projets immédiatement grâce à nos solutions de financement adaptées. Paiement en plusieurs fois, crédit renouvelable ou location longue durée : choisissez la formule qui correspond à votre budget et vos préférences.</p>
+                <div class="feature">
+                    <span class="feature-icon">🔒</span>
+                    <h3>CONTINENTAL™</h3>
+                    <p>Semelles développées avec la technologie Continental pour une adhérence exceptionnelle sur tous types de surfaces, par tous les temps.</p>
                 </div>
-                <div class="service-item">
-                    <div class="feature-icon" style="color: #ffdb00;">♻️</div>
-                    <h3>Reprise Ancien Mobilier</h3>
-                    <p>Nous rachetons vos
+                <div class="feature">
+                    <span class="feature-icon">💧</span>
+                    <h3>GORE-TEX</h3>
+                    <p>Protection imperméable et respirante pour affronter les conditions les plus difficiles. Gardez vos pieds au sec sans sacrifier le confort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials fade-in" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ce Que Disent Nos Clients</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">Ces chaussures de running ont complètement changé ma façon de courir. Le confort Boost est incroyable et j'ai amélioré mes performances de 15%. Je les recommande à tous les coureurs sérieux !</p>
+                    <div class="testimonial-author">Marie Dubois</div>
+                    <div class="testimonial-role">Marathonienne amateur</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">En tant que joueur de football amateur, j'ai testé beaucoup de marques. Les crampons adidas offrent un toucher de balle exceptionnel et une stabilité parfaite. Mon jeu s'est nettement amélioré.</p>
+                    <div class="testimonial-author">Thomas Martin</div>
+                    <div class="testimonial-role">Footballeur club régional</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">La collection Parley m'a séduite par son engagement environnemental sans compromis sur la qualité. Mes baskets sont non seulement stylées mais aussi éco-responsables. Parfait pour mon mode de vie urbain.</p>
+                    <div class="testimonial-author">Sophie Chen</div>
+                    <div class="testimonial-role">Designer graphique</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Adidas propose le meilleur équipement de basketball que j'ai jamais porté. L'amorti, le maintien et le style sont au rendez-vous. Ces chaussures m'accompagnent sur le terrain depuis 2 ans sans faillir.</p>
+                    <div class="testimonial-author">Kevin Johnson</div>
+                    <div class="testimonial-role">Joueur équipe universitaire</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-in" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-Nous</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Nos Magasins & Support</h3>
+                    <p>Trouvez votre magasin adidas le plus proche ou contactez notre service client pour toute question sur nos produits, les retours ou les échanges.</p>
+                    
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Siège Social France</strong><br>
+                            123 Avenue des Champs-Élysées<br>
+                            75

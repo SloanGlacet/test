@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adidas France - Chaussures, Vêtements & Équipements de Sport</title>
+    <title>CloneSite AI - Recréez n'importe quel site instantanément</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,133 +14,50 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000000;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #000;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #000;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .header {
             text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 50px;
+            padding: 60px 20px 40px;
+            animation: fadeInDown 0.8s ease;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
-            animation: float 6s ease-in-out infinite;
+        .pricing-nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .pricing-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
-        .hero-content {
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
+        @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -146,36 +65,117 @@
             }
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .header h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fb923c 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+        .header p {
+            font-size: 1.4em;
             opacity: 0.9;
-            line-height: 1.8;
+            font-weight: 400;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        .main-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-section h2 {
             color: white;
-            text-decoration: none;
-            border-radius: 50px;
+            margin-bottom: 40px;
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
             font-weight: 600;
-            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 12px;
+            font-size: 1em;
+            letter-spacing: 0.3px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            font-size: 1em;
+            color: white;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        select option {
+            background: #1a2332;
+            color: white;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .clone-btn {
+            width: 100%;
+            padding: 22px;
+            background: linear-gradient(135deg, #fb923c 0%, #d97706 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 40px rgba(251, 146, 60, 0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .cta-button::before {
+        .clone-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -186,672 +186,802 @@
             transition: left 0.5s;
         }
 
-        .cta-button:hover::before {
+        .clone-btn:hover:not(:disabled)::before {
             left: 100%;
         }
 
-        .cta-button:hover {
+        .clone-btn:hover:not(:disabled) {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 50px rgba(251, 146, 60, 0.4);
         }
 
-        /* Section Styles */
-        section {
-            padding: 80px 0;
+        .clone-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
+        .loading {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #666;
-        }
-
-        .about-text h3 {
-            color: #333;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .stat:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #667eea;
-            display: block;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Products Section */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .product-card h3 {
-            color: #333;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .product-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        /* Features Section */
-        .features {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px;
+            display: none;
             color: white;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #ffffff;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 30px;
         }
 
-        .feature {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .feature:hover {
-            transform: translateY(-5px);
+        .loading h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
+        .loading p {
+            opacity: 0.7;
+            font-size: 1.1em;
         }
 
-        .feature h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .results {
+            display: none;
+            animation: fadeInUp 0.6s ease;
         }
 
-        .feature p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background: #f8f9fa;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: #667eea;
-            opacity: 0.3;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .testimonial-role {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .preview-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
             color: white;
         }
 
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            align-items: start;
+        .preview-section h3 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            font-weight: 700;
         }
 
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
+        .code-preview {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-preview pre {
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        .download-section {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(217, 119, 6, 0.2) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(251, 146, 60, 0.3);
+            border-radius: 25px;
+            color: white;
+            margin-bottom: 30px;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
+        .download-btn {
+            background: linear-gradient(135deg, #fb923c 0%, #d97706 100%);
+            color: white;
+            padding: 18px 50px;
             border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(251, 146, 60, 0.4);
+        }
+
+        .new-clone-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .new-clone-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
 
-        .contact-info h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+        .error-message {
+            background: rgba(220, 53, 69, 0.2);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(220, 53, 69, 0.4);
+            color: #ff6b6b;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            display: none;
+            font-weight: 500;
         }
 
-        .contact-info p {
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item span {
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #222;
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
+        .feature-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 20px;
+            margin: 30px 0;
         }
 
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #fff;
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s;
         }
 
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.6;
-            transition: color 0.3s ease;
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
         }
 
-        .footer-section a:hover {
-            color: #fff;
+        .feature-item h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
         }
 
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            padding: 10px;
-            background: #333;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: #667eea;
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #444;
-            color: #999;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
+            .main-card {
+                padding: 35px 25px;
             }
 
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
+            .header h1 {
+                font-size: 2.2em;
             }
 
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 1rem 0;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .products-grid,
-            .features-grid,
-            .testimonials-grid {
+            .feature-list {
                 grid-template-columns: 1fr;
             }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        /* Animation for scroll reveal */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo">adidas</a>
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#products">Produits</a></li>
-                <li><a href="#features">Sports</a></li>
-                <li><a href="#testimonials">Avis</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="container">
+        <div class="header">
+            <div style="text-align: right; margin-bottom: 30px;">
+                <a href="pricing.html" class="pricing-nav-btn">Voir les tarifs</a>
             </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Impossible is Nothing</h1>
-            <p>Découvrez notre nouvelle collection de chaussures, vêtements et équipements de sport conçus pour vous accompagner dans tous vos défis. Que vous soyez amateur ou athlète professionnel, adidas vous offre les meilleures technologies pour dépasser vos limites.</p>
-            <a href="#products" class="cta-button">Découvrir la collection</a>
+            <h1>🎨 CloneSite AI</h1>
+            <p>Recréez n'importe quel site web instantanément avec l'IA</p>
+            <p style="font-size: 1em; margin-top: 10px; opacity: 0.7;">Structure identique, code moderne, 100% personnalisable</p>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about fade-in" id="about">
-        <div class="container">
-            <h2 class="section-title">Notre Histoire</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Plus qu'une marque, une passion</h3>
-                    <p>Depuis 1949, adidas révolutionne le monde du sport avec des innovations constantes et un design iconique. Notre mission est simple : accompagner chaque athlète, du débutant au champion olympique, dans la réalisation de ses objectifs.</p>
-                    <p>Nous croyons que le sport a le pouvoir de changer des vies. C'est pourquoi nous nous engageons à créer des produits de qualité supérieure qui allient performance, style et durabilité. Nos trois bandes sont devenues le symbole de l'excellence sportive dans le monde entier.</p>
-                    <p>Aujourd'hui, nous continuons d'innover avec des technologies révolutionnaires comme Boost, Primeknit et Climacool, tout en respectant notre engagement envers l'environnement avec des matériaux recyclés et des processus de fabrication durables.</p>
+        <div class="main-card">
+            <div class="input-section" id="inputSection">
+                <h2>Entrez l'URL du site à cloner</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.1em; margin-bottom: 40px;">L'IA va analyser et recréer la structure complète en quelques secondes</p>
+                
+                <div class="input-group">
+                    <input type="url" id="websiteUrl" placeholder="https://www.exemple.fr" required style="font-size: 1.3em; padding: 25px 30px; text-align: center;">
                 </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">75+</span>
-                        <span class="stat-label">Années d'expérience</span>
+
+                <button class="clone-btn" id="cloneBtn" onclick="validateUrl()" style="font-size: 1.4em; padding: 28px;">
+                    Analyser ce site
+                </button>
+
+                <div class="feature-list" style="margin-top: 50px;">
+                    <div class="feature-item">
+                        <h4>60 secondes</h4>
+                        <p>Site complet et professionnel</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">190+</span>
-                        <span class="stat-label">Pays dans le monde</span>
+                    <div class="feature-item">
+                        <h4>6-8 sections</h4>
+                        <p>Hero, services, témoignages, footer...</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">60K+</span>
-                        <span class="stat-label">Employés passionnés</span>
+                    <div class="feature-item">
+                        <h4>Design avancé</h4>
+                        <p>Animations, gradients, hover effects</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">2.2M+</span>
-                        <span class="stat-label">Produits vendus/an</span>
+                    <div class="feature-item">
+                        <h4>Code propre</h4>
+                        <p>HTML/CSS commenté et organisé</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Products Section -->
-    <section class="products fade-in" id="products">
-        <div class="container">
-            <h2 class="section-title">Nos Collections</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <span class="product-icon">👟</span>
-                    <h3>Chaussures Running</h3>
-                    <p>Découvrez notre gamme complète de chaussures de running avec la technologie Boost pour un retour d'énergie optimal. Confort, performance et style réunis dans chaque foulée.</p>
-                    <div class="product-price">À partir de 89€</div>
-                    <a href="#" class="cta-button">Explorer</a>
-                </div>
-                <div class="product-card">
-                    <span class="product-icon">👕</span>
-                    <h3>Vêtements Sport</h3>
-                    <p>Tenues techniques et lifestyle pour tous les sports. Matériaux respirants, coupe ergonomique et designs tendance pour vous accompagner du terrain à la ville.</p>
-                    <div class="product-price">À partir de 35€</div>
-                    <a href="#" class="cta-button">Explorer</a>
-                </div>
-                <div class="product-card">
-                    <span class="product-icon">⚽</span>
-                    <h3>Football</h3>
-                    <p>Équipement officiel des plus grandes équipes mondiales. Chaussures de foot, ballons et maillots pour jouer comme vos idoles sur tous les terrains.</p>
-                    <div class="product-price">À partir de 65€</div>
-                    <a href="#" class="cta-button">Explorer</a>
-                </div>
-                <div class="product-card">
-                    <span class="product-icon">🏀</span>
-                    <h3>Basketball</h3>
-                    <p>Collection signature des plus grandes stars de la NBA. Technologie avancée pour l'explosivité, le maintien et le confort sur le parquet.</p>
-                    <div class="product-price">À partir de 95€</div>
-                    <a href="#" class="cta-button">Explorer</a>
-                </div>
-                <div class="product-card">
-                    <span class="product-icon">🎾</span>
-                    <h3>Tennis</h3>
-                    <p>Équipement approuvé par les champions de Roland Garros et Wimbledon. Précision, stabilité et élégance pour dominer le court.</p>
-                    <div class="product-price">À partir de 75€</div>
-                    <a href="#" class="cta-button">Explorer</a>
-                </div>
-                <div class="product-card">
-                    <span class="product-icon">🏋️</span>
-                    <h3>Training</h3>
-                    <p>Gear polyvalent pour tous vos entraînements. Flexibilité, résistance et respirabilité pour repousser vos limites à chaque séance.</p>
-                    <div class="product-price">À partir de 45€</div>
-                    <a href="#" class="cta-button">Explorer</a>
-                </div>
+                <div class="error-message" id="errorMessage"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features fade-in" id="features">
-        <div class="container">
-            <h2 class="section-title">Nos Technologies</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <span class="feature-icon">⚡</span>
-                    <h3>BOOST™</h3>
-                    <p>Notre technologie révolutionnaire d'amorti qui stocke et restitue l'énergie à chaque pas. Plus de confort, plus de performance, plus longtemps.</p>
+            <div class="customization-section" id="customizationSection" style="display: none;">
+                <h2>Site détecté !</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.1em; margin-bottom: 30px; word-break: break-all;" id="detectedUrl"></p>
+                
+                <div class="detected-info" style="background: rgba(255,255,255,0.08); padding: 30px; border-radius: 20px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color: white; margin-bottom: 15px; font-size: 1.3em;">Analyse préliminaire</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                        <div style="color: rgba(255,255,255,0.9);">
+                            <strong style="display: block; margin-bottom: 5px;">Type détecté:</strong>
+                            <span id="siteType">Site vitrine</span>
+                        </div>
+                        <div style="color: rgba(255,255,255,0.9);">
+                            <strong style="display: block; margin-bottom: 5px;">Sections estimées:</strong>
+                            <span id="sectionsCount">5-7 sections</span>
+                        </div>
+                        <div style="color: rgba(255,255,255,0.9);">
+                            <strong style="display: block; margin-bottom: 5px;">Temps estimé:</strong>
+                            <span id="estimatedTime">45-60 secondes</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature">
-                    <span class="feature-icon">🧵</span>
-                    <h3>PRIMEKNIT</h3>
-                    <p>Tige tricotée sans coutures qui épouse parfaitement la forme de votre pied. Légèreté, flexibilité et maintien optimal pour un confort inégalé.</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">💨</span>
-                    <h3>CLIMACOOL</h3>
-                    <p>Système de ventilation 360° qui évacue la chaleur et l'humidité. Restez au frais et au sec même pendant les entraînements les plus intenses.</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">🌿</span>
-                    <h3>PARLEY</h3>
-                    <p>Collection éco-responsable fabriquée à partir de plastique océanique recyclé. Performance et protection de l'environnement réunies.</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">🔒</span>
-                    <h3>CONTINENTAL™</h3>
-                    <p>Semelles développées avec la technologie Continental pour une adhérence exceptionnelle sur tous types de surfaces, par tous les temps.</p>
-                </div>
-                <div class="feature">
-                    <span class="feature-icon">💧</span>
-                    <h3>GORE-TEX</h3>
-                    <p>Protection imperméable et respirante pour affronter les conditions les plus difficiles. Gardez vos pieds au sec sans sacrifier le confort.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials fade-in" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Ce Que Disent Nos Clients</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">Ces chaussures de running ont complètement changé ma façon de courir. Le confort Boost est incroyable et j'ai amélioré mes performances de 15%. Je les recommande à tous les coureurs sérieux !</p>
-                    <div class="testimonial-author">Marie Dubois</div>
-                    <div class="testimonial-role">Marathonienne amateur</div>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">En tant que joueur de football amateur, j'ai testé beaucoup de marques. Les crampons adidas offrent un toucher de balle exceptionnel et une stabilité parfaite. Mon jeu s'est nettement amélioré.</p>
-                    <div class="testimonial-author">Thomas Martin</div>
-                    <div class="testimonial-role">Footballeur club régional</div>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">La collection Parley m'a séduite par son engagement environnemental sans compromis sur la qualité. Mes baskets sont non seulement stylées mais aussi éco-responsables. Parfait pour mon mode de vie urbain.</p>
-                    <div class="testimonial-author">Sophie Chen</div>
-                    <div class="testimonial-role">Designer graphique</div>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">Adidas propose le meilleur équipement de basketball que j'ai jamais porté. L'amorti, le maintien et le style sont au rendez-vous. Ces chaussures m'accompagnent sur le terrain depuis 2 ans sans faillir.</p>
-                    <div class="testimonial-author">Kevin Johnson</div>
-                    <div class="testimonial-role">Joueur équipe universitaire</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact fade-in" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contactez-Nous</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Nos Magasins & Support</h3>
-                    <p>Trouvez votre magasin adidas le plus proche ou contactez notre service client pour toute question sur nos produits, les retours ou les échanges.</p>
+                <!-- Section collecte email -->
+                <div class="email-section" id="emailSection" style="background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(217, 119, 6, 0.2) 100%); border: 2px solid rgba(251, 146, 60, 0.3); padding: 30px; border-radius: 20px; margin-bottom: 30px;">
+                    <h3 style="color: white; margin-bottom: 15px; font-size: 1.3em; text-align: center;">Clonage gratuit en BETA</h3>
+                    <p style="color: rgba(255,255,255,0.9); text-align: center; margin-bottom: 25px;">Profitez du clonage gratuit pendant notre phase BETA. Entrez votre email pour être notifié des futures offres Premium.</p>
                     
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <div>
-                            <strong>Siège Social France</strong><br>
-                            123 Avenue des Champs-Élysées<br>
-                            75
+                    <div class="input-group" style="max-width: 500px; margin: 0 auto;">
+                        <input type="email" id="userEmail" placeholder="votre@email.com" required style="font-size: 1.1em; padding: 18px 20px; text-align: center; margin-bottom: 15px;">
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.85em; text-align: center; margin-top: 10px;">Vos données sont sécurisées. Pas de spam.</p>
+                    </div>
+                </div>
+
+                <div class="customization-choice" style="text-align: center; margin: 40px 0;">
+                    <h3 style="color: white; margin-bottom: 25px; font-size: 1.5em;">Voulez-vous personnaliser le clone ?</h3>
+                    
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <button onclick="cloneWithoutCustomization()" style="
+                            background: linear-gradient(135deg, #fb923c 0%, #d97706 100%);
+                            color: #ffffff;
+                            padding: 20px 40px;
+                            border: none;
+                            border-radius: 15px;
+                            font-size: 1.2em;
+                            font-weight: 700;
+                            cursor: pointer;
+                            transition: all 0.3s;
+                            box-shadow: 0 15px 40px rgba(251, 146, 60, 0.3);
+                        ">
+                            Cloner maintenant
+                        </button>
+                        
+                        <button onclick="showCustomizationOptions()" style="
+                            background: rgba(255, 255, 255, 0.1);
+                            backdrop-filter: blur(10px);
+                            color: white;
+                            padding: 20px 40px;
+                            border: 2px solid rgba(251, 146, 60, 0.5);
+                            border-radius: 15px;
+                            font-size: 1.2em;
+                            font-weight: 700;
+                            cursor: pointer;
+                            transition: all 0.3s;
+                        ">
+                            Personnaliser d'abord
+                        </button>
+                    </div>
+                </div>
+
+                <div id="customizationForm" style="display: none; margin-top: 40px;">
+                    <h3 style="color: white; margin-bottom: 25px; font-size: 1.4em;">Options de personnalisation</h3>
+                    
+                    <div class="input-group">
+                        <label for="customizations">Vos modifications (optionnel)</label>
+                        <textarea id="customizations" placeholder="Ex: Change les couleurs en bleu et blanc, ajoute un formulaire de contact, remplace les images..."></textarea>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.9em; margin-top: 8px;">Soyez précis pour de meilleurs résultats</p>
+                    </div>
+
+                    <button class="clone-btn" onclick="cloneWithCustomization()">
+                        Cloner avec personnalisations
+                    </button>
+                </div>
+
+                <button class="new-clone-btn" onclick="resetToStart()" style="display: block; margin: 30px auto 0;">
+                    Changer d'URL
+                </button>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <h3>Clonage en cours...</h3>
+                <p>Analyse de la structure du site original et génération du code</p>
+            </div>
+
+            <div class="results" id="results">
+                <!-- Results will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentUrl = '';
+
+        function validateUrl() {
+            const websiteUrl = document.getElementById('websiteUrl').value;
+
+            if (!websiteUrl) {
+                showError('Veuillez entrer une URL de site web');
+                return;
+            }
+
+            if (!isValidUrl(websiteUrl)) {
+                showError('Veuillez entrer une URL valide (ex: https://www.exemple.fr)');
+                return;
+            }
+
+            // Store URL and show customization options
+            currentUrl = websiteUrl;
+            document.getElementById('detectedUrl').textContent = `URL: ${websiteUrl}`;
+            
+            // Simulate site type detection
+            if (websiteUrl.includes('restaurant') || websiteUrl.includes('bistro')) {
+                document.getElementById('siteType').textContent = 'Restaurant';
+            } else if (websiteUrl.includes('shop') || websiteUrl.includes('store')) {
+                document.getElementById('siteType').textContent = 'E-commerce';
+            } else {
+                document.getElementById('siteType').textContent = 'Site vitrine';
+            }
+
+            // Hide input section and show customization
+            document.getElementById('inputSection').style.display = 'none';
+            document.getElementById('customizationSection').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showCustomizationOptions() {
+            document.getElementById('customizationForm').style.display = 'block';
+            document.querySelector('.customization-choice').style.display = 'none';
+            
+            // Smooth scroll to form
+            setTimeout(() => {
+                document.getElementById('customizationForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+
+        function cloneWithoutCustomization() {
+            console.log('=== cloneWithoutCustomization appelé ===');
+            const email = document.getElementById('userEmail').value;
+            console.log('Email saisi:', email);
+            
+            if (!email || !isValidEmail(email)) {
+                console.log('Email invalide, affichage erreur');
+                // Scroll vers le champ email et afficher l'erreur
+                document.getElementById('emailSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                document.getElementById('userEmail').style.borderColor = '#ff6b6b';
+                document.getElementById('userEmail').focus();
+                
+                // Afficher un message d'erreur temporaire
+                const emailSection = document.getElementById('emailSection');
+                const existingError = emailSection.querySelector('.email-error');
+                if (!existingError) {
+                    const errorMsg = document.createElement('p');
+                    errorMsg.className = 'email-error';
+                    errorMsg.style.color = '#ff6b6b';
+                    errorMsg.style.textAlign = 'center';
+                    errorMsg.style.marginTop = '10px';
+                    errorMsg.textContent = 'Veuillez entrer une adresse email valide';
+                    emailSection.appendChild(errorMsg);
+                    
+                    setTimeout(() => errorMsg.remove(), 3000);
+                }
+                return;
+            }
+            
+            console.log('Email valide, continuation du clonage');
+            // Réinitialiser le style du champ email
+            document.getElementById('userEmail').style.borderColor = '';
+            
+            // Sauvegarder l'email
+            saveEmail(email);
+            
+            // Continuer avec le clonage
+            console.log('Appel de cloneWebsite');
+            cloneWebsite(currentUrl, '');
+        }
+
+        function cloneWithCustomization() {
+            const email = document.getElementById('userEmail').value;
+            const customizations = document.getElementById('customizations').value;
+            
+            if (!email || !isValidEmail(email)) {
+                // Scroll vers le champ email et afficher l'erreur
+                document.getElementById('emailSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                document.getElementById('userEmail').style.borderColor = '#ff6b6b';
+                document.getElementById('userEmail').focus();
+                
+                // Afficher un message d'erreur temporaire
+                const emailSection = document.getElementById('emailSection');
+                const existingError = emailSection.querySelector('.email-error');
+                if (!existingError) {
+                    const errorMsg = document.createElement('p');
+                    errorMsg.className = 'email-error';
+                    errorMsg.style.color = '#ff6b6b';
+                    errorMsg.style.textAlign = 'center';
+                    errorMsg.style.marginTop = '10px';
+                    errorMsg.textContent = 'Veuillez entrer une adresse email valide';
+                    emailSection.appendChild(errorMsg);
+                    
+                    setTimeout(() => errorMsg.remove(), 3000);
+                }
+                return;
+            }
+            
+            // Réinitialiser le style du champ email
+            document.getElementById('userEmail').style.borderColor = '';
+            
+            // Sauvegarder l'email
+            saveEmail(email);
+            
+            // Continuer avec le clonage
+            cloneWebsite(currentUrl, customizations);
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function saveEmail(email) {
+            // Sauvegarder localement (pour l'instant)
+            // Pour récupérer les emails plus tard, ouvre la console (F12) et tape:
+            // JSON.parse(localStorage.getItem('clonesite_emails'))
+            try {
+                const emails = JSON.parse(localStorage.getItem('clonesite_emails') || '[]');
+                emails.push({
+                    email: email,
+                    date: new Date().toISOString(),
+                    url: currentUrl
+                });
+                localStorage.setItem('clonesite_emails', JSON.stringify(emails));
+                console.log('✅ Email sauvegardé localement:', email);
+                console.log('📊 Total emails collectés:', emails.length);
+            } catch(e) {
+                console.log('Erreur sauvegarde, mais on continue:', e);
+            }
+        }
+
+        function resetToStart() {
+            document.getElementById('customizationSection').style.display = 'none';
+            document.getElementById('inputSection').style.display = 'block';
+            document.getElementById('websiteUrl').value = '';
+            document.getElementById('customizations').value = '';
+            document.getElementById('customizationForm').style.display = 'none';
+            document.querySelector('.customization-choice').style.display = 'block';
+            currentUrl = '';
+            
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function cloneWebsite(url, customizations) {
+            // Show loading
+            document.getElementById('customizationSection').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            try {
+                // Clone the website using Claude AI
+                const clonedSite = await performCloning(url, customizations);
+                
+                // Display results
+                displayResults(clonedSite, url);
+            } catch (error) {
+                console.error('Error during cloning:', error);
+                showError('Une erreur est survenue lors du clonage. Veuillez réessayer.');
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('customizationSection').style.display = 'block';
+            }
+        }
+
+        async function analyzeWebsiteStructure(url) {
+            try {
+                // Utiliser un proxy CORS pour récupérer le contenu
+                const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+                
+                const response = await fetch(proxyUrl);
+                const html = await response.text();
+                
+                // Créer un parser DOM temporaire
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Analyser la structure
+                const structure = {
+                    hasHeader: !!doc.querySelector('header, nav, [role="navigation"]'),
+                    hasHero: !!doc.querySelector('.hero, .banner, .jumbotron, section:first-of-type'),
+                    sectionsCount: doc.querySelectorAll('section, .section, main > div').length,
+                    hasTestimonials: !!doc.querySelector('.testimonial, .review, .avis'),
+                    hasGallery: !!doc.querySelector('.gallery, .portfolio, .images'),
+                    hasPricing: !!doc.querySelector('.pricing, .tarif, .price'),
+                    hasContact: !!doc.querySelector('.contact, form[action*="contact"]'),
+                    hasFooter: !!doc.querySelector('footer'),
+                    // Analyser les couleurs dominantes
+                    backgroundColor: window.getComputedStyle(doc.body).backgroundColor,
+                    // Compter les cartes/éléments
+                    cardsCount: doc.querySelectorAll('.card, .box, .item, article').length
+                };
+                
+                return structure;
+            } catch (error) {
+                console.log('Analyse directe impossible, utilisation du mode estimation');
+                // Si le fetch échoue (CORS, etc.), on retourne une structure estimée
+                return null;
+            }
+        }
+
+        async function performCloning(url, customizations) {
+            // Analyser la structure du site original
+            const structure = await analyzeWebsiteStructure(url);
+            
+            // Construire une description détaillée de la structure
+            let structureDescription = '';
+            if (structure) {
+                structureDescription = `
+STRUCTURE DÉTECTÉE DU SITE ORIGINAL :
+- Header/Navigation: ${structure.hasHeader ? 'OUI' : 'NON'}
+- Section Hero: ${structure.hasHero ? 'OUI' : 'NON'}
+- Nombre de sections: ${structure.sectionsCount}
+- Témoignages: ${structure.hasTestimonials ? 'OUI' : 'NON'}
+- Galerie/Portfolio: ${structure.hasGallery ? 'OUI' : 'NON'}
+- Section Tarifs: ${structure.hasPricing ? 'OUI' : 'NON'}
+- Contact/Formulaire: ${structure.hasContact ? 'OUI' : 'NON'}
+- Footer: ${structure.hasFooter ? 'OUI' : 'NON'}
+- Nombre de cartes: ${structure.cardsCount}
+
+IMPORTANT : Reproduis EXACTEMENT cette structure dans le même ordre avec le même nombre d'éléments.
+`;
+            }
+
+            const prompt = `Tu es un développeur web expert spécialisé dans la création de sites web modernes et professionnels. Tu dois créer un clone HTML/CSS complet et de haute qualité.
+
+URL à cloner: ${url}
+${customizations ? `Personnalisations demandées: ${customizations}` : ''}
+
+${structureDescription}
+
+INSTRUCTIONS DÉTAILLÉES :
+
+1. STRUCTURE COMPLÈTE DU SITE :
+   ${structure ? `- Respecte EXACTEMENT la structure détectée ci-dessus
+   - Reproduis le même nombre de sections (${structure.sectionsCount})
+   - Utilise le même ordre des éléments` : `- Crée minimum 6-8 sections complètes`}
+   - Header sticky avec logo et navigation moderne
+   - Section Hero immersive avec grand titre, sous-titre et CTA
+   - Section "À propos" / "Services" avec icônes
+   - Section "Features" / "Avantages" avec cartes
+   ${structure?.hasTestimonials ? '- Section Témoignages (OBLIGATOIRE détecté sur le site)' : '- Section Témoignages si pertinent'}
+   ${structure?.hasGallery ? '- Section Galerie (OBLIGATOIRE détecté sur le site)' : '- Section Galerie si applicable'}
+   ${structure?.hasPricing ? '- Section Pricing/Tarifs (OBLIGATOIRE détecté sur le site)' : '- Section Pricing si commercial'}
+   ${structure?.hasContact ? '- Section Contact avec formulaire (OBLIGATOIRE détecté sur le site)' : '- Section Contact'}
+   - Footer complet avec liens, réseaux sociaux, mentions légales
+
+2. DESIGN MODERNE ET PROFESSIONNEL :
+   - Utilise des dégradés de couleurs élégants
+   - Ajoute des ombres subtiles (box-shadow)
+   - Transitions et animations CSS fluides
+   - Espacement généreux et aéré
+   - Typographie hiérarchisée (titres clairs)
+   - Boutons avec effet hover
+   - Cards avec effet hover (translateY, shadow)
+   ${structure?.cardsCount ? `- Crée ${Math.max(structure.cardsCount, 6)} cartes/éléments similaires` : ''}
+
+3. CSS AVANCÉ :
+   - Animations @keyframes pour les entrées
+   - Transitions sur tous les éléments interactifs
+   - Hover effects sur les boutons et cartes
+   - Gradient backgrounds
+   - Border-radius modernes (12px-20px)
+   - Box-shadow multiples pour la profondeur
+
+4. RESPONSIVE DESIGN :
+   - Media queries pour mobile, tablette, desktop
+   - Navigation hamburger sur mobile
+   - Grid et flexbox adaptatifs
+   - Images responsive
+
+5. CONTENU RÉALISTE :
+   - Textes longs et détaillés (pas juste 2 mots)
+   - Plusieurs paragraphes dans chaque section
+   - Listes à puces complètes
+   - Formulaires fonctionnels
+   - Placeholders d'images descriptifs
+
+6. ÉLÉMENTS VISUELS :
+   - Icônes (utilise des emoji ou des symboles Unicode élégants)
+   - Cartes bien espacées avec padding généreux
+   - Sections alternées (fond blanc / fond coloré)
+   - Effets de profondeur avec z-index
+
+${customizations ? 'IMPORTANT : Applique toutes les personnalisations demandées en plus de ces instructions.' : ''}
+
+CODE FINAL :
+- Un seul fichier HTML avec CSS intégré dans <style>
+- Code propre, indenté et commenté
+- Prêt à l'emploi, professionnel
+- Minimum 400 lignes de code
+
+RÉPONDS UNIQUEMENT AVEC LE CODE HTML COMPLET. Commence directement par <!DOCTYPE html> sans texte avant ou après, sans balises markdown ou backticks.`;
+
+            const response = await fetch("https://api.anthropic.com/v1/messages", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    model: "claude-sonnet-4-20250514",
+                    max_tokens: 8000,
+                    messages: [
+                        { role: "user", content: prompt }
+                    ]
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('API request failed');
+            }
+
+            const data = await response.json();
+            let htmlCode = data.content[0].text;
+            
+            // Clean up response - remove any markdown formatting if present
+            htmlCode = htmlCode.replace(/```html\n?/g, "").replace(/```\n?/g, "").trim();
+            
+            return {
+                html: htmlCode,
+                url: url
+            };
+        }
+
+        function displayResults(clonedSite, originalUrl) {
+            const resultsDiv = document.getElementById('results');
+            
+            const previewHtml = clonedSite.html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            
+            let html = `
+                <div class="preview-section">
+                    <h3>Site cloné avec succès !</h3>
+                    <p style="opacity: 0.8; margin-bottom: 20px; word-break: break-all;">Basé sur: ${originalUrl}</p>
+                    
+                    <div class="code-preview">
+                        <button class="copy-btn" onclick="copyCode()">Copier</button>
+                        <pre id="codeContent">${previewHtml}</pre>
+                    </div>
+                </div>
+
+                <div class="download-section">
+                    <h3 style="margin-bottom: 20px;">Télécharger votre site</h3>
+                    <p style="margin-bottom: 30px; opacity: 0.9;">Prêt à être hébergé sur GitHub Pages, Netlify, ou votre serveur</p>
+                    <button class="download-btn" onclick="downloadHTML()">Télécharger HTML</button>
+                    <button class="download-btn" onclick="previewInNewTab()">Prévisualiser</button>
+                    <br>
+                    <button class="new-clone-btn" onclick="resetCloner()">Cloner un autre site</button>
+                </div>
+            `;
+
+            resultsDiv.innerHTML = html;
+            document.getElementById('loading').style.display = 'none';
+            resultsDiv.style.display = 'block';
+
+            // Store the HTML for download
+            window.clonedHTML = clonedSite.html;
+        }
+
+        function copyCode() {
+            const codeContent = document.getElementById('codeContent').textContent;
+            const textarea = document.createElement('textarea');
+            textarea.value = window.clonedHTML || codeContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            const btn = document.querySelector('.copy-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Copié !';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 2000);
+        }
+
+        function downloadHTML() {
+            const htmlContent = window.clonedHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'site-clone.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function previewInNewTab() {
+            const htmlContent = window.clonedHTML;
+            const newWindow = window.open();
+            newWindow.document.write(htmlContent);
+            newWindow.document.close();
+        }
+
+        function resetCloner() {
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('inputSection').style.display = 'block';
+            document.getElementById('customizationSection').style.display = 'none';
+            document.getElementById('websiteUrl').value = '';
+            document.getElementById('customizations').value = '';
+            document.getElementById('customizationForm').style.display = 'none';
+            document.querySelector('.customization-choice').style.display = 'block';
+            currentUrl = '';
+            
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function isValidUrl(string) {
+            try {
+                const url = new URL(string);
+                return url.protocol === 'http:' || url.protocol === 'https:';
+            } catch (_) {
+                return false;
+            }
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
